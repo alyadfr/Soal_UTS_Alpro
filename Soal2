@@ -1,1 +1,71 @@
-//Kerjakan soal nomor 2 disini (Hapus komentar ini)
+#include <iostream>
+using namespace std;
+
+int main() {
+    string kode, jenis_kendaraan;
+    int jam_keluar, jenis, jam_masuk, menit_masuk, menit_keluar;
+    int lokasi, durasi_jam, total_biaya = 0;
+    int tarif_awal = 0, tarif_lanjutan = 0;
+
+    cout << "Masukkan kode parkir (10 digit): ";
+    cin >> kode;
+    cout << "Masukkan jam keluar (HHMM): ";
+    cin >> jam_keluar;
+
+    // Ambil informasi dari kode parkir
+    jenis = (kode[0]-'0')*10 + (kode[1]-'0');
+    jam_masuk = (kode[2]-'0')*10 + (kode[3]-'0');
+    menit_masuk = (kode[4]-'0')*10 + (kode[5]-'0');
+    lokasi = (kode[6]-'0')*1000 + (kode[7]-'0')*100 + (kode[8]-'0')*10 + (kode[9]-'0');
+
+    // Gunakan switch-case untuk jenis kendaraan
+    switch (jenis) {
+        case 10:
+            jenis_kendaraan = "Mobil Pribadi";
+            tarif_awal = 5000;
+            tarif_lanjutan = 3000;
+            break;
+        case 20:
+            jenis_kendaraan = "Motor";
+            tarif_awal = 3000;
+            tarif_lanjutan = 2000;
+            break;
+        case 30:
+            jenis_kendaraan = "Bus";
+            tarif_awal = 10000;
+            tarif_lanjutan = 7000;
+            break;
+        default:
+            cout << "Jenis kendaraan tidak dikenali.\n";
+            return 0;
+    }
+
+    // Hitung waktu keluar
+    jam_keluar = jam_keluar / 100;
+    menit_keluar = jam_keluar % 100;
+
+    // Hitung durasi parkir
+    int total_masuk = jam_masuk * 60 + menit_masuk;
+    int total_keluar = jam_keluar * 60 + menit_keluar;
+
+    if (total_keluar < total_masuk) total_keluar += 1440; // Apabila Lewat tengah malam
+
+    int durasi_menit = total_keluar - total_masuk;
+    durasi_jam = durasi_menit / 60;
+    if (durasi_menit % 60 != 0) durasi_jam++;
+
+    // Hitung total biaya
+    if (durasi_jam > 0) total_biaya = tarif_awal + (durasi_jam - 1) * tarif_lanjutan;
+
+    // Output
+    cout << "\n--- Ringkasan Parkir ---\n";
+    cout << "Jenis Kendaraan : " << jenis_kendaraan << endl;
+    cout << "Waktu Masuk     : " << jam_masuk << ":" << (menit_masuk < 10 ? "0" : "") << menit_masuk << endl;
+    cout << "Waktu Keluar    : " << jam_keluar << ":" << (menit_keluar < 10 ? "0" : "") << menit_keluar << endl;
+    cout << "Durasi Parkir   : " << durasi_jam << " jam\n";
+    cout << "Lokasi Parkir   : " << lokasi << endl;
+    cout << "Total Biaya     : Rp " << total_biaya << endl;
+
+    return 0;
+}
+
