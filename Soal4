@@ -11,12 +11,14 @@ int main(){
     cin>>n;
     cout<<"Hasil pertandingan: ";
     cin>>s;
-    
+
+    // Mengecek apakah inputan hasil pertandingan sesuai dengan jumlah babak
     if (s.length() != n) {
         cout << "DATA TIDAK VALID" << endl;
         return 0;
     }
 
+    // operasi kondisi menggunakan switch case untuk mengecek hasil pertandingan
     for (char hasil : s) {
         switch (hasil) {
             case 'A':
@@ -32,6 +34,7 @@ int main(){
                 break;
         }
     }
+    // output hasil
     cout << "Poin A: " << poinA << endl;
     cout << "Poin B: " << poinB << endl;
 
