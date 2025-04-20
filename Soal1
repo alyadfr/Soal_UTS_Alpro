@@ -59,3 +59,31 @@ int main() {
 
     return 0;
 }
+
+ALGORITMA PENYELESAIAN
+1. Input Nomor Kartu:
+    - Program meminta pengguna memasukkan nomor kartu digital.
+    - Nomor ini disimpan sebagai string agar bisa dicek per karakter.
+2. Hitung Panjang Nomor Kartu:
+    - Digunakan .length() untuk mengetahui jumlah digit dalam nomor kartu.
+    - Panjang ini nanti digunakan untuk menentukan tipe kartu dan validasi.
+3. Tentukan Tipe Kartu:
+    - Dilihat dari panjang kartu dan dua digit pertama:
+    - Jika panjang 14 dan diawali 65 → NUSANTARA
+    - Jika panjang 16 dan diawali 77 atau 78 → GARUDA
+    - Jika panjang 15 dan diawali 91 → MERDEKA
+    - Kalau tidak sesuai → TIDAK DIKETAHUI
+    - Kalau tipe tidak dikenali, program akan berhenti dan memberi pesan error.
+4. Validasi Nomor Kartu:
+    - Mulai dari digit paling kanan (belakang) ke kiri.
+    - Setiap digit diubah dari karakter ke angka.
+    - Untuk posisi genap dari belakang (misalnya ke-2, ke-4, dst):
+    - Angkanya dikali 2.
+    - Kalau hasilnya lebih dari 9 → dikurang 9 (biar 1 digit).
+    - Semua angka dijumlahkan ke variabel total.
+5. Tampilkan Tipe Kartu:
+    - Setelah pengecekan tipe dan perhitungan, program mencetak jenis kartu (NUSANTARA, GARUDA, atau MERDEKA).
+    - Cek Apakah Kartu VALID atau TIDAK:
+    -Kalau total habis dibagi 10 → Status: VALID
+    - Kalau tidak → Status: TIDAK VALID
+
