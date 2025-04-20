@@ -69,3 +69,42 @@ int main() {
     return 0;
 }
 
+ALGORITMA PENYELESAIAN
+1. Input dari Pengguna
+    - Pengguna masukkan kode parkir 10 digit. Contoh: 1023151234
+    - Pengguna juga masukkan jam keluar dalam format HHMM. Contoh: 1500 artinya jam 15:00.
+2. Ambil Informasi dari Kode Parkir
+    Kode parkir berisi informasi:
+        Digit 1-2 → Jenis kendaraan:
+        10 → Mobil Pribadi
+        20 → Motor
+        30 → Bus
+        Digit 3-6 → Jam dan menit masuk (HHMM)
+        Digit 7-10 → Lokasi parkir
+    Program memecah kode ini satu per satu menggunakan indeks string kode[i].
+3. Tentukan Jenis Kendaraan
+    Pakai switch-case untuk mengetahui jenis kendaraan berdasarkan dua digit awal:
+    Kalau 10 → Mobil Pribadi (tarif awal 5000, berikutnya 3000)
+    Kalau 20 → Motor (tarif awal 3000, berikutnya 2000)
+    Kalau 30 → Bus (tarif awal 10000, berikutnya 7000)
+4. Ubah Jam Keluar Menjadi Format Jam dan Menit
+    Contoh: 1530 jadi 15 jam dan 30 menit.
+    Dibagi 100 untuk dapat jam, dan mod 100 untuk dapat menit.
+5. Hitung Durasi Parkir
+    Waktu masuk dan keluar diubah ke total menit.
+    Kalau waktu keluar lebih kecil dari waktu masuk (lewat tengah malam), tambahkan 1440 menit (1 hari).
+    Durasi dihitung: (total_keluar - total_masuk).
+    Jika ada sisa menit, dibulatkan ke atas jadi 1 jam penuh.
+6. Hitung Biaya Parkir
+    Kalau durasi lebih dari 0 jam:
+    Biaya = tarif awal + (jam berikutnya × tarif lanjutan)
+7. Cetak Hasil
+    Menampilkan:
+    Jenis kendaraan
+    Waktu masuk & keluar
+    Durasi parkir (jam)
+    Lokasi parkir
+    Total biaya yang harus dibayar
+    
+
+
