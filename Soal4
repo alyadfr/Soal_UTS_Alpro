@@ -56,10 +56,10 @@ ALGORITMA
    - Jumlah babak pertandingan (n)
    - String hasil pertandingan sepanjang n karakter (A, B, atau C)
 
-2. Program memeriksa apakah panjang string hasil pertandingan sesuai dengan jumlah babak:
-   - Jika tidak sesuai, tampilkan "DATA TIDAK VALID" dan hentikan program.
+2. Program memeriksa apakah panjang string hasil pertandingan sesuai dengan jumlah babak menggunakan "s.length()":
+   - Jika tidak sesuai, tampilkan "DATA TIDAK VALID" dan program dihentikan.
 
-3. Program memproses hasil pertandingan satu per satu:
+3. Program memproses hasil pertandingan satu per satu menggunakan operasi kondisi switch case:
    - Jika pemain A menang ('A'): A mendapat 3 poin dan jika menang 3 kali berturut-turut, dapat bonus 2 poin.
    - Jika pemain B menang ('B'): B mendapat 3 poin dan jika menang 3 kali berturut-turut, dapat bonus 2 poin.
    - Jika hasil seri ('C'): Kedua pemain mendapat 1 poin, dan streak (kemenangan beruntun) di-reset.
