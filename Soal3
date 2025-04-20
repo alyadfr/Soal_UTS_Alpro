@@ -61,18 +61,20 @@ int main() {
 ALGORITMA
 
 1. Program meminta input berupa kode transaksi 8 digit dalam bentuk angka.
-2. Program memeriksa apakah angka tersebut benar-benar 8 digit:
+2. Program memeriksa apakah angka tersebut benar-benar 8 digit menggunakan logika "if (kode < 00000000 || kode > 99999999)":
    - Jika tidak, tampilkan "DATA TIDAK VALID" dan program berhenti.
-3. Dua digit pertama kode digunakan untuk menentukan jenis hari:
+3. Dua digit pertama kode digunakan untuk menentukan jenis hari, digunakan perhitungan "int hari = kode / 1000000" :
    - 01 → Hari Kerja
    - 02 → Akhir Pekan
    - 03 → Hari Libur Nasional
-4. Dua digit berikutnya menunjukkan jenis pelanggan:
+4. Dua digit berikutnya menunjukkan jenis pelanggan, digunakan perhitungan "int member = (kode / 10000) % 100":
    - 01 → Biasa
    - 02 → Silver
    - 03 → Gold
-5. Empat digit terakhir menunjukkan jumlah belanja dalam kelipatan Rp100.000.
-6. Program menghitung jumlah poin berdasarkan tabel konversi poin:
+5. Empat digit terakhir menunjukkan jumlah belanja dalam kelipatan Rp100.000, 
+    digunakan perhitungan "int belanjaKode = kode % 10000
+                           int belanja = belanjaKode * 100000".
+6. Program menghitung jumlah poin berdasarkan tabel konversi poin menggunakan operasi kondisi if else:
    - Misalnya, pelanggan Gold pada Hari Libur Nasional mendapat 7 poin per Rp100.000.
 7. Program menghitung total poin dari belanja dan poin per unit.
 8. Jika kode hari atau member tidak valid, tampilkan "DATA TIDAK VALID".
