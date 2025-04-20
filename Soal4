@@ -48,3 +48,23 @@ int main(){
     return 0;
 
 }
+
+/*
+ALGORITMA 
+
+1. Program menerima input:
+   - Jumlah babak pertandingan (n)
+   - String hasil pertandingan sepanjang n karakter (A, B, atau C)
+
+2. Program memeriksa apakah panjang string hasil pertandingan sesuai dengan jumlah babak:
+   - Jika tidak sesuai, tampilkan "DATA TIDAK VALID" dan hentikan program.
+
+3. Program memproses hasil pertandingan satu per satu:
+   - Jika pemain A menang ('A'): A mendapat 3 poin dan jika menang 3 kali berturut-turut, dapat bonus 2 poin.
+   - Jika pemain B menang ('B'): B mendapat 3 poin dan jika menang 3 kali berturut-turut, dapat bonus 2 poin.
+   - Jika hasil seri ('C'): Kedua pemain mendapat 1 poin, dan streak (kemenangan beruntun) di-reset.
+
+4. Setelah semua babak selesai:
+   - Program menampilkan total poin untuk pemain A dan B.
+   - Program menentukan pemenangnya, atau menyatakan hasil seri jika poin sama.
+*/
