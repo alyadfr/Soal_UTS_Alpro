@@ -1,1 +1,61 @@
-//Kerjakan soal nomor 1 disini (Hapus komentar ini)
+#include <iostream>
+using namespace std;
+
+int main() {
+    string nomor_kartu_digital;
+    string tipe_kartu;
+    int i, angka, posisi, panjang; 
+    int total = 0;
+
+    cout << "Masukkan nomor kartu digital: ";
+    cin >> nomor_kartu_digital;
+
+    // Hitung panjang menggunakan .length()
+    panjang = nomor_kartu_digital.length();
+
+    // Tentukan tipe kartu berdasarkan panjang dan digit awal
+    if (panjang == 14 && nomor_kartu_digital[0] == '6' && nomor_kartu_digital[1] == '5') {
+        tipe_kartu = "NUSANTARA";
+    } 
+    else if (panjang == 16 && nomor_kartu_digital[0] == '7' && (nomor_kartu_digital[1] == '7' || nomor_kartu_digital[1] == '8')) {
+        tipe_kartu = "GARUDA";
+    } 
+    else if (panjang == 15 && nomor_kartu_digital[0] == '9' && nomor_kartu_digital[1] == '1') {
+        tipe_kartu = "MERDEKA";
+    } 
+    else {
+        tipe_kartu = "TIDAK DIKETAHUI";
+    }
+
+    if (tipe_kartu == "TIDAK DIKETAHUI") {
+        cout << "Tipe kartu tidak dikenali." << endl;
+        return 0;
+    }
+
+    // Validasi dengan algoritma Nusantara
+    for (i = panjang - 1; i >= 0; i--) {
+        angka = nomor_kartu_digital[i] - '0';
+        posisi = panjang - i;
+
+        // Kalikan digit genap dari belakang
+        if (posisi % 2 == 0) {
+            angka = angka * 2;
+            if (angka > 9) {
+                angka -= 9;
+            }
+        }
+
+        total += angka;
+    }
+
+    cout << "Tipe kartu: " << tipe_kartu << endl;
+
+    // Cek validitas
+    if (total % 10 == 0) {
+        cout << "Status: Nomor kartu VALID" << endl;
+    } else {
+        cout << "Status: Nomor kartu TIDAK VALID" << endl;
+    }
+
+    return 0;
+}
